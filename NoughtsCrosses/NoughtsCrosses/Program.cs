@@ -10,10 +10,7 @@ namespace NoughtsCrosses
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Lel");
-            Console.ReadLine();
-            while (1 == 1);
-            { }
+          
         }
     }
 }
