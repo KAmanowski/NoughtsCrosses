@@ -12,11 +12,11 @@ namespace NoughtsCrosses
         {
             Console.WriteLine("Lel");
             Console.ReadLine();
-
-
-
-
             Console.WriteLine("Will this merge?");
+            while (1 == 1) ;
+            {
+
+            }
         }
     }
 }
