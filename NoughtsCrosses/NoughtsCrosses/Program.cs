@@ -10,13 +10,9 @@ namespace NoughtsCrosses
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Lel");
-            Console.ReadLine();
+            string board;
 
 
-
-
-            Console.WriteLine("Will this merge?");
         }
     }
 }
