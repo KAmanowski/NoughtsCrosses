@@ -12,6 +12,8 @@ namespace NoughtsCrosses
         {
             Console.WriteLine("Lel");
             Console.ReadLine();
+            while (1 == 1);
+            { }
         }
     }
 }
