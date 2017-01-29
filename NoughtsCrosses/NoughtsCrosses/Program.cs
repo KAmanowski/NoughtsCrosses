@@ -8,7 +8,7 @@ namespace NoughtsCrosses
 {
     class Program
     {
-        private static string _p1Name, _p2Name; // player names
+        private static string _p1Name, _p2Name, _p1Symbol, _p2Symbol; // player names and symbols
         private static string[,] _boardpos = new string[3, 3]; // positions on the board
 
 
@@ -20,7 +20,7 @@ namespace NoughtsCrosses
 
             Console.WriteLine("Welcome to the Noughts & Crosses game.");
 
-            for (int x = 1; x < 3; x++)
+            for (int x = 1; x < 3; x++) // loops twice to get 2 player names
             {
                 Console.Write("Player {0} name:", x);
                 input = Console.ReadLine();
@@ -32,12 +32,47 @@ namespace NoughtsCrosses
                     if (x == 2)
                         _p2Name = input;
                 }
-                else { x--; }
+                else { x--; } // if name is not valid, increments x to add extra loop
             }
             Console.Clear();
-            DisplayPlayerNames();
+            for (int x = 1; x < 3; x++) // loops twice to gather both player symbols
+            {
+                Console.Write("Player {0} symbol:", x);
+                input = Console.ReadLine();
+
+                if (ValidateStringInput(input) && (input.ToUpper() == "X" || input.ToUpper() == "O" )) // checks if there is a strig and if it is valid
+                {
+                    if (x == 1)
+                    {
+                        _p1Symbol = input.ToUpper();
+                    }
+                    if (x == 2)
+                    {
+                        if (_p1Symbol == input.ToUpper()) // checks if it not the same as the first player's
+                        {
+                            Console.WriteLine("Please enter a valid input.");
+                            x--;
+                        }
+                        else
+                        {
+                            _p2Symbol = input.ToUpper();
+                        }
+                    }
+                }
+                else {
+                    Console.WriteLine("Please enter either an 'x' or an 'o'.");
+                    x--; }
+            }
+
             Console.ReadLine();
 
+        }
+
+        static void GameStart() // starts the game
+        {
+            DisplayPlayerNames();
+            Draw();
+            
         }
 
         static void DisplayPlayerNames() // displays player names
@@ -67,7 +102,7 @@ namespace NoughtsCrosses
             }
         }
 
-        static bool ValidateStringInput(string input) // validates whether or not the entered string is valid
+        static bool ValidateStringInput(string input) // validates whether or not the entered string is empty
         {
 
             if (string.IsNullOrWhiteSpace(input))
