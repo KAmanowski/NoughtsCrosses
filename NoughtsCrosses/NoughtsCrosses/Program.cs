@@ -10,7 +10,7 @@ namespace NoughtsCrosses
     {
         private static string _p1Name, _p2Name, _p1Symbol, _p2Symbol; // player names and symbols
         private static string[,] _boardpos = new string[3, 3]; // positions on the board
-
+        private static bool _playerI; // true for p1, false for p2
 
         static void Main(string[] args)
         {
@@ -102,7 +102,12 @@ namespace NoughtsCrosses
             }
         }
 
-        static bool ValidateStringInput(string input) // validates whether or not the entered string is empty
+        static void PlayerTurn(string input)
+        {
+
+        }
+
+        static bool ValidateStringInput(string input) // validates whether or not the entered string is emptythe other 
         {
 
             if (string.IsNullOrWhiteSpace(input))
@@ -114,5 +119,7 @@ namespace NoughtsCrosses
                 return true;
             }
         }
+
+        
     }
 }
